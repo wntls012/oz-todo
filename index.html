@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OFFROOM | 지금을 멈추고, 더 좋은 내일을 위해</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    :root {
+      --bg-cream: #fbfbf9;
+      --bg-warm-gray: #f3f3ef;
+      --text-black: #171719;
+      --text-muted: #6e727c;
+      --text-light: #9fa3ac;
+      --primary-forest: #234e38;
+      --primary-forest-hover: #1c3e2c;
+      --border-light: rgba(0, 0, 0, 0.07);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-cream);
+      color: var(--text-black);
+      line-height: 1.6;
+      word-break: keep-all;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ====================================================
+       1. HERO SECTION (C안 풀 백그라운드 & 상단 내비)
+       ==================================================== */
+    .hero-wrapper {
+      position: relative;
+      min-height: 100vh;
+      background: linear-gradient(to right, rgba(14, 16, 20, 0.88) 0%, rgba(14, 16, 20, 0.65) 50%, rgba(14, 16, 20, 0.45) 100%),
+                  url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=2000&q=85') center/cover no-repeat;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-bottom: 30px;
+    }
+
+    /* GNB */
+    header {
+      width: 100%;
+      padding: 24px 0;
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-logo {
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: #fff;
+      text-decoration: none;
+    }
+    .nav-menu {
+      display: flex;
+      gap: 32px;
+    }
+    @media (max-width: 860px) {
+      .nav-menu { display: none; }
+    }
+    .nav-menu a {
+      color: rgba(255, 255, 255, 0.72);
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+    .nav-menu a:hover {
+      color: #fff;
+    }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .btn-nav-login {
+      color: rgba(255, 255, 255, 0.75);
+      text-decoration: none;
+      font-size: 13.5px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 6px 14px;
+      border-radius: 20px;
+      transition: all 0.2s;
+    }
+    .btn-nav-login:hover {
+      color: #fff;
+      border-color: #fff;
+    }
+    .btn-nav-start {
+      background: var(--primary-forest);
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 7px 18px;
+      border-radius: 20px;
+      transition: background 0.2s;
+    }
+    .btn-nav-start:hover {
+      background: var(--primary-forest-hover);
+    }
+
+    /* Hero Body */
+    .hero-content {
+      position: relative;
+      margin: auto 0;
+      padding: 60px 0;
+    }
+    .hero-subtag {
+      font-size: 11.5px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.65);
+      margin-bottom: 22px;
+      font-weight: 500;
+    }
+    .hero-title {
+      font-size: clamp(38px, 5.2vw, 56px);
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -1.2px;
+      margin-bottom: 24px;
+      color: #fff;
+    }
+    .hero-desc {
+      font-size: 15.5px;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.7;
+      max-width: 440px;
+      margin-bottom: 36px;
+      font-weight: 300;
+    }
+    .btn-hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--primary-forest);
+      color: #fff;
+      padding: 13px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 14.5px;
+      font-weight: 600;
+      transition: all 0.25s;
+    }
+    .btn-hero-pill:hover {
+      background: var(--primary-forest-hover);
+      transform: translateY(-2px);
+    }
+    .hero-notice {
+      display: block;
+      margin-top: 14px;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Right Aesthetic Serif Typography & Slider Index */
+    .hero-right-serif {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: right;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 20px;
+      line-height: 1.45;
+      letter-spacing: 0.5px;
+      pointer-events: none;
+    }
+    @media (max-width: 768px) {
+      .hero-right-serif { display: none; }
+    }
+    .hero-footer-slider {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 18px;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.4);
+      letter-spacing: 1px;
+    }
+    .hero-footer-slider span.active {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    /* ====================================================
+       2. C안 4단 시그니처 비주얼 섹션 (화이트 바탕 전환)
+       ==================================================== */
+    .section-c-grid {
+      background-color: var(--bg-cream);
+      padding: 110px 0 90px;
+    }
+    .c-section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .c-section-header h2 {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+      color: var(--text-black);
+    }
+    .c-section-header p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .c-card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 900px) {
+      .c-card-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 540px) {
+      .c-card-grid { grid-template-columns: 1fr; }
+    }
+    .c-card {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.25s ease;
+    }
+    .c-card:hover {
+      transform: translateY(-4px);
+    }
+    .c-card-img-box {
+      width: 100%;
+      height: 290px;
+      overflow: hidden;
+      border-radius: 3px;
+      background: #e6e6e2;
+      margin-bottom: 18px;
+    }
+    .c-card-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: contrast(1.02);
+      transition: transform 0.4s ease;
+    }
+    .c-card:hover .c-card-img-box img {
+      transform: scale(1.05);
+    }
+    .c-card-info {
+      text-align: center;
+    }
+    .c-card-title {
+      font-size: 15.5px;
+      font-weight: 600;
+      color: var(--text-black);
+      margin-bottom: 6px;
+    }
+    .c-card-desc {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ====================================================
+       3. 4-STEP PROCESS (모두의 자서전 구조 이식)
+       ==================================================== */
+    .section-steps {
+      background: #fff;
+      padding: 100px 0;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .step-list-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 900px) {
+      .step-list-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 540px) {
+      .step-list-grid { grid-template-columns: 1fr; }
+    }
+    .step-item {
+      padding: 24px;
+      border-radius: 8px;
+      background: var(--bg-cream);
+      border: 1px solid var(--border-light);
+    }
+    .step-badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--primary-forest);
+      letter-spacing: 1.5px;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .step-item h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text-black);
+    }
+    .step-item p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ====================================================
+       4. BEFORE & AFTER & INTERACTIVE CALCULATOR
+       ==================================================== */
+    .section-tools {
+      background-color: var(--bg-cream);
+      padding: 110px 0;
+    }
+    .compare-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-bottom: 70px;
+    }
+    @media (max-width: 768px) {
+      .compare-container { grid-template-columns: 1fr; }
+    }
+    .comp-box {
+      padding: 36px 32px;
+      border-radius: 8px;
+      border: 1px solid var(--border-light);
+    }
+    .comp-box.before {
+      background: #fff;
+    }
+    .comp-box.after {
+      background: #f1f6f3;
+      border-color: rgba(35, 78, 56, 0.2);
+    }
+    .comp-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+    .comp-box.before .comp-tag { color: #b91c1c; }
+    .comp-box.after .comp-tag { color: var(--primary-forest); }
+    .comp-box h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text-black);
+    }
+    .comp-box ul {
+      list-style: none;
+    }
+    .comp-box li {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Calculator Box */
+    .calc-card {
+      background: #fff;
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    }
+    .calc-header {
+      margin-bottom: 28px;
+    }
+    .calc-header h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .calc-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+    .calc-select {
+      padding: 8px 18px;
+      border-radius: 6px;
+      border: 1px solid #dcdcd6;
+      background: #fff;
+      font-size: 14.5px;
+      font-weight: 600;
+      outline: none;
+      cursor: pointer;
+    }
+    .calc-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 768px) {
+      .calc-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .calc-val-item {
+      background: var(--bg-cream);
+      padding: 20px 14px;
+      border-radius: 6px;
+    }
+    .calc-val-item small {
+      display: block;
+      font-size: 12px;
+      color: var(--text-light);
+      margin-bottom: 6px;
+    }
+    .calc-val-item strong {
+      font-size: 22px;
+      color: var(--primary-forest);
+      font-weight: 700;
+    }
+    .calc-val-item em {
+      display: block;
+      font-style: normal;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* ====================================================
+       5. FAQ ACCORDION
+       ==================================================== */
+    .section-faq {
+      background: #fff;
+      padding: 100px 0;
+      border-top: 1px solid var(--border-light);
+    }
+    .faq-container {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .faq-row {
+      border-bottom: 1px solid var(--border-light);
+    }
+    .faq-q {
+      padding: 20px 0;
+      font-size: 15.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-a {
+      display: none;
+      padding-bottom: 20px;
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+    .faq-row.active .faq-a { display: block; }
+    .faq-row.active .faq-icon { transform: rotate(180deg); }
+    .faq-icon { transition: transform 0.2s; font-size: 13px; }
+
+    /* ====================================================
+       6. FINAL CTA BANNER (C안 하단 와이드 통창 이미지)
+       ==================================================== */
+    .final-cta-wrapper {
+      position: relative;
+      padding: 130px 0;
+      background: linear-gradient(rgba(15, 17, 21, 0.78), rgba(15, 17, 21, 0.88)),
+                  url('https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=2000&q=85') center/cover no-repeat;
+      color: #fff;
+    }
+    .cta-inner-c {
+      max-width: 600px;
+    }
+    .cta-inner-c h2 {
+      font-size: clamp(30px, 4.2vw, 42px);
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: -1px;
+      margin-bottom: 18px;
+    }
+    .cta-inner-c p {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 34px;
+    }
+    .btn-white-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      color: #000;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-white-pill:hover {
+      background: #e2e8f0;
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--bg-cream);
+      padding: 40px 0;
+      border-top: 1px solid var(--border-light);
+      font-size: 12px;
+      color: var(--text-light);
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Hero Section (C안의 사진 풀 배경 & 상단 메뉴) -->
+  <div class="hero-wrapper" id="home">
+    <header>
+      <div class="container">
+        <div class="header-inner">
+          <a href="#home" class="brand-logo">OFFROOM</a>
+          <nav class="nav-menu">
+            <a href="#features">서비스 소개</a>
+            <a href="#features">기능</a>
+            <a href="#features">커뮤니티</a>
+            <a href="#features">오프라인 추천</a>
+          </nav>
+          <div class="header-right">
+            <a href="#" class="btn-nav-login">로그인</a>
+            <a href="#calc" class="btn-nav-start">시작하기</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="hero-content">
+        <p class="hero-subtag">OFF FOR A BETTER TOMORROW</p>
+        <h1 class="hero-title">
+          지금을 멈추고,<br>
+          더 좋은 내일을 위해.
+        </h1>
+        <p class="hero-desc">
+          스마트폰에 빼앗긴 시간을 되찾고,<br>
+          진짜 중요한 일에 집중하는 디지털 디톡스 플랫폼,<br>
+          OFFROOM입니다.
+        </p>
+
+        <a href="#calc" class="btn-hero-pill">
+          지금 무료로 시작하기 →
+        </a>
+        <span class="hero-notice">카드 등록 없이 무료로 시작할 수 있어요.</span>
+
+        <!-- C안 우측 세로 타이포 -->
+        <div class="hero-right-serif">
+          Less<br>Scroll<br>More<br>Life
+        </div>
+      </div>
+    </div>
+
+    <!-- C안 우측 하단 인디케이터 -->
+    <div class="container">
+      <div class="hero-footer-slider">
+        <span class="active">01</span>
+        <span>02</span>
+        <span>03</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. C안 시그니처 4단 사진 그리드 (화이트 바탕) -->
+  <section class="section-c-grid" id="features">
+    <div class="container">
+      <div class="c-section-header">
+        <h2>OFFROOM이 함께합니다.</h2>
+        <p>기록하고, 도전하고, 연결하고, 더 나은 일상을 시작해보세요.</p>
+      </div>
+
+      <div class="c-card-grid">
+        <!-- Card 1 -->
+        <a href="#calc" class="c-card">
+          <div class="c-card-img-box">
+            <img src="https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&w=600&q=80" alt="사용시간 기록" />
+          </div>
+          <div class="c-card-info">
+            <h3 class="c-card-title">사용시간 기록</h3>
+            <p class="c-card-desc">나의 사용패턴을<br>한눈에 확인</p>
+          </div>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="#steps" class="c-card">
+          <div class="c-card-img-box">
+            <img src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=600&q=80" alt="챌린지" />
+          </div>
+          <div class="c-card-info">
+            <h3 class="c-card-title">챌린지</h3>
+            <p class="c-card-desc">작은 목표가<br>변화를 만듭니다</p>
+          </div>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="#steps" class="c-card">
+          <div class="c-card-img-box">
+            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" alt="커뮤니티" />
+          </div>
+          <div class="c-card-info">
+            <h3 class="c-card-title">커뮤니티</h3>
+            <p class="c-card-desc">함께 실천하는<br>사람들과의 연결</p>
+          </div>
+        </a>
+
+        <!-- Card 4 -->
+        <a href="#steps" class="c-card">
+          <div class="c-card-img-box">
+            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=600&q=80" alt="오프라인 추천" />
+          </div>
+          <div class="c-card-info">
+            <h3 class="c-card-title">오프라인 추천</h3>
+            <p class="c-card-desc">일상을 채우는<br>다양한 경험</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. 모두의 자서전 4-STEP 프로세스 이식 -->
+  <section class="section-steps" id="steps">
+    <div class="container">
+      <div class="c-section-header">
+        <h2>내 일상을 되찾는 가장 쉽고 빠른 방법</h2>
+        <p>무리하지 않는 4단계의 자연스러운 리셋 루틴을 경험해 보세요.</p>
+      </div>
+
+      <div class="step-list-grid">
+        <div class="step-item">
+          <span class="step-badge">STEP 01</span>
+          <h3>패턴 인지하기</h3>
+          <p>어떤 앱에서 무의식적으로 시간이 새고 있는지 객관적인 수치로 마주합니다.</p>
+        </div>
+        <div class="step-item">
+          <span class="step-badge">STEP 02</span>
+          <h3>하루 15분 줄이기</h3>
+          <p>작은 약속부터 시작하여 뇌에 가해지는 도파민 과부하를 점진적으로 줄입니다.</p>
+        </div>
+        <div class="step-item">
+          <span class="step-badge">STEP 03</span>
+          <h3>대체 활동 채우기</h3>
+          <p>비워진 자리에 10분 산책, 가벼운 독서 등 오프라인의 감각을 다시 채워 넣습니다.</p>
+        </div>
+        <div class="step-item">
+          <span class="step-badge">STEP 04</span>
+          <h3>나의 성취와 연결</h3>
+          <p>되찾은 시간을 시각적으로 확인하고, 서로의 고요한 도전을 지지합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Before/After & 시간 환산 인터랙티브 계산기 -->
+  <section class="section-tools" id="calc">
+    <div class="container">
+      <div class="compare-container">
+        <div class="comp-box before">
+          <span class="comp-tag">BEFORE</span>
+          <h3>도파민에 뺏긴 저녁</h3>
+          <ul>
+            <li><i class="bi bi-x-lg text-danger"></i> 침대에 누워 쇼츠·릴스만 넘기다 늦은 취침</li>
+            <li><i class="bi bi-x-lg text-danger"></i> 아침마다 찾아오는 피로감과 자책감</li>
+            <li><i class="bi bi-x-lg text-danger"></i> 공부와 취미를 할 여유가 없다는 무기력</li>
+          </ul>
+        </div>
+        <div class="comp-box after">
+          <span class="comp-tag">AFTER</span>
+          <h3>온전히 나를 채우는 저녁</h3>
+          <ul>
+            <li><i class="bi bi-check2 text-success"></i> 취침 전 15분 독서와 차분한 숙면</li>
+            <li><i class="bi bi-check2 text-success"></i> 일상을 스스로 통제하고 있다는 안정감</li>
+            <li><i class="bi bi-check2 text-success"></i> 한 달 15시간 이상의 소중한 여백 확보</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 계산기 -->
+      <div class="calc-card">
+        <div class="calc-header">
+          <h3>하루 30분을 되찾으면 나의 하루는 얼마나 달라질까요?</h3>
+          <p style="font-size: 13.5px; color: var(--text-muted);">매일 덜어내고 싶은 스크롤 시간을 선택해보세요.</p>
+        </div>
+
+        <div class="calc-controls">
+          <label style="font-size: 14px; font-weight: 600;">선택 시간:</label>
+          <select id="timeSelect" class="calc-select">
+            <option value="15">15분</option>
+            <option value="30" selected>30분</option>
+            <option value="45">45분</option>
+            <option value="60">1시간</option>
+          </select>
+        </div>
+
+        <div class="calc-grid">
+          <div class="calc-val-item">
+            <small>하루</small>
+            <strong id="vDay">30분</strong>
+            <em>작은 쉼표</em>
+          </div>
+          <div class="calc-val-item">
+            <small>일주일 (7일)</small>
+            <strong id="vWeek">3.5시간</strong>
+            <em>책 한 권 완독</em>
+          </div>
+          <div class="calc-val-item">
+            <small>한 달 (30일)</small>
+            <strong id="vMonth">15시간</strong>
+            <em>새로운 취미</em>
+          </div>
+          <div class="calc-val-item">
+            <small>1년 (365일)</small>
+            <strong id="vYear">182.5시간</strong>
+            <em id="vDays">약 7.6일의 여유</em>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. FAQ -->
+  <section class="section-faq">
+    <div class="container">
+      <div class="c-section-header">
+        <h2>자주 묻는 질문</h2>
+        <p>시작 전 궁금한 점을 확인해 보세요.</p>
+      </div>
+
+      <div class="faq-container">
+        <div class="faq-row">
+          <div class="faq-q">
+            <span>Q. 의지가 약한 편인데도 실천할 수 있나요?</span>
+            <i class="bi bi-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-a">
+            네, 당연합니다. OFFROOM은 극단적인 차단 대신 10분, 15분 단위의 아주 작은 목표부터 시작하여 뇌의 저항을 최소화하도록 설계되었습니다.
+          </div>
+        </div>
+
+        <div class="faq-row">
+          <div class="faq-q">
+            <span>Q. 스마트폰을 강제로 잠가버리나요?</span>
+            <i class="bi bi-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-a">
+            아닙니다. 업무나 연락에 필요한 기능은 그대로 유지하며, 유저가 스스로 줄이고 싶은 특정 앱만 선택해 부드러운 사용 한도를 설정합니다.
+          </div>
+        </div>
+
+        <div class="faq-row">
+          <div class="faq-q">
+            <span>Q. 목표를 지키지 못한 날은 어떻게 하나요?</span>
+            <i class="bi bi-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-a">
+            어떤 페널티도 없습니다. 완벽함보다 꾸준함이 중요합니다. 잠깐 멈췄더라도 오늘 다시 시작하면 충분합니다.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. C안 시그니처 하단 와이드 CTA 배너 -->
+  <div class="final-cta-wrapper">
+    <div class="container">
+      <div class="cta-inner-c">
+        <h2>
+          스크롤 너머,<br>
+          더 넓은 세상이 기다리고 있어요.
+        </h2>
+        <p>지금, OFFROOM과 함께 시작해보세요.</p>
+        <a href="#calc" class="btn-white-pill">
+          시작하기 →
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <strong>OFFROOM</strong> &nbsp; Less Scroll, More Life
+        </div>
+        <div>
+          © 2026 OFFROOM. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    // Time Calculator
+    const timeSelect = document.getElementById('timeSelect');
+    const vDay = document.getElementById('vDay');
+    const vWeek = document.getElementById('vWeek');
+    const vMonth = document.getElementById('vMonth');
+    const vYear = document.getElementById('vYear');
+    const vDays = document.getElementById('vDays');
+
+    function updateCalc() {
+      const mins = parseInt(timeSelect.value, 10);
+      vDay.textContent = mins >= 60 ? `${mins / 60}시간` : `${mins}분`;
+      vWeek.textContent = `${((mins * 7) / 60).toFixed(1)}시간`;
+      vMonth.textContent = `${((mins * 30) / 60).toFixed(1)}시간`;
+      const yHours = ((mins * 365) / 60).toFixed(1);
+      const yD = ((mins * 365) / (60 * 24)).toFixed(1);
+      vYear.textContent = `${yHours}시간`;
+      vDays.textContent = `약 ${yD}일의 여유`;
+    }
+    timeSelect.addEventListener('change', updateCalc);
+
+    // FAQ Accordion
+    const faqRows = document.querySelectorAll('.faq-row');
+    faqRows.forEach(row => {
+      const q = row.querySelector('.faq-q');
+      q.addEventListener('click', () => {
+        const isActive = row.classList.contains('active');
+        faqRows.forEach(r => r.classList.remove('active'));
+        if (!isActive) row.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
